@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $(dirname $0)/arduinoEnv.sh
+. $(dirname $0)/arduinoEnv.sh $1
 screenrc=/tmp/screenrc-ard-$$
 
 echo "hardstatus alwayslastline \"Arduino Serial Monitor on $port, $baud baud\"" > $screenrc

@@ -2,7 +2,7 @@
 # Set up environment variables used by other scripts or master makefile
 
 # Used to build include path for libraries
-ARDUINO_SKETCHBOOK=~/Desktop/code/arduino
+ARDUINO_SKETCHBOOK=~/src/arduino
 
 # Used to find toolchain
 ARDUINO_DIR=/usr/share/arduino

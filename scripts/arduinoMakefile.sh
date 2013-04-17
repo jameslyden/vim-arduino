@@ -2,7 +2,7 @@
 
 . $(dirname $0)/arduinoEnv.sh
 makefile=ard-mk-$$
-userlibroot=$(echo "$ARDUINO_DIR/libraries" | grep -o "/" | sed '{:q;N;s/\n//g;t q}' | sed 's;/;../;g')/$ARDUINO_SKETCHBOOK/libraries
+userlibroot=$(echo "$ARDUINO_DIR/libraries" | grep -o "/" | sed '{:q;N;s/\n//g;t q}' | sed 's;/;../;g' )/$ARDUINO_SKETCHBOOK/libraries
 
 for lib in $(grep "^#include <" $sketch/*.ino | cut -d"<" -f2 | cut -d. -f1); do
 	if [ -d $ARDUINO_DIR/libraries/$lib ]; then
@@ -10,7 +10,7 @@ for lib in $(grep "^#include <" $sketch/*.ino | cut -d"<" -f2 | cut -d. -f1); do
 		if [ -d $ARDUINO_DIR/libraries/$lib/utility ]; then
 			libs="$libs $lib/utility"
 		fi
-	elif [-d $ARDUINO_SKETCHBOOK/libraries/$lib ]; then
+	elif [ -d $ARDUINO_SKETCHBOOK/libraries/$lib ]; then
 		libs="$libs /$userlibroot/$lib"
 	else
 		echo "Library $lib not found. Program may not compile properly."
