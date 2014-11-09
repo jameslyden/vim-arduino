@@ -20,7 +20,8 @@ done
 echo "BOARD_TAG    = $board" > $makefile
 echo "ARDUINO_PORT = $port" >> $makefile
 echo "ARDUINO_LIBS =$libs" >> $makefile
-echo "ARDUINO_DIR = $ARDUINO_DIR" >> $makefile
+echo "ARDUINO_DIR  = $ARDUINO_DIR" >> $makefile
+echo "MAKEFILES    = $sketch/$makefile $ARDUINO_DIR/Arduino.mk" >> $makefile
 echo "include $ARDUINO_DIR/Arduino.mk" >> $makefile
 
 echo "Using the following makefile contents:"
