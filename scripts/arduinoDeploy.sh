@@ -7,6 +7,6 @@ echo Compiling sketch $sketch.
 echo =======================================
 echo ""
 
-make -f$makefile upload
+make -s -f$makefile upload 2>&1 | grep -vE "warning: (overriding|ignoring old) commands for target"
 
 rm $makefile

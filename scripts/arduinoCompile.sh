@@ -8,6 +8,6 @@ echo Compiling sketch $sketch.
 echo =======================================
 echo ""
 
-make -f$makefile
+make -s -f$makefile 2>&1 | grep -vE "warning: (overriding|ignoring old) commands for target"
 
 rm $makefile
